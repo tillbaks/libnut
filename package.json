@@ -8,9 +8,10 @@
     "clean": "cmake-js clean",
     "patch": "node ./patch-packagename.js",
     "build:debug": "cmake-js rebuild --CDCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\" --debug",
-    "build:release": "cmake-js rebuild --CDCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\"",
-    "prepublishOnly": "npm run build:release",
-    "install": "npm run build:release",
+    "build:release": "npm run rebuild",
+    "prepublishOnly": "npm run rebuild",
+    "install": "cmake-js compile --CDCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\"",
+    "rebuild": "cmake-js rebuild --CDCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\"",
     "publish:next": "npm publish --tag next"
   },
   "repository": {
@@ -51,5 +52,10 @@
   "cpu": [
     "x64",
     "arm64"
-  ]
+  ],
+  "binary": {
+    "napi_versions": [
+      7
+    ]
+  }
 }
