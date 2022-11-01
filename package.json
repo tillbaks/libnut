@@ -9,8 +9,8 @@
     "patch": "node ./patch-packagename.js",
     "build:debug": "cmake-js rebuild --CDCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\" --debug",
     "build:release": "cmake-js rebuild --CDCMAKE_OSX_ARCHITECTURES=\"arm64;x86_64\"",
-    "postinstall": "npm install ; npm run build:release",
     "prepublishOnly": "npm run build:release",
+    "prepare": "npm run build:release",
     "publish:next": "npm publish --tag next"
   },
   "repository": {
