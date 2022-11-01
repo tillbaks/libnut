@@ -7,13 +7,13 @@ project(libnut)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Source
-set(SOURCE_FILES "src/main.cc" "src/deadbeef_rand.cc" "src/Bitmap.cc")
+set(SOURCE_FILES "src/main.cc" "src/deadbeef_rand.cc")
 if (UNIX AND NOT APPLE)
-    set(SOURCE_FILES "${SOURCE_FILES}" "src/linux/keycode.cc" "src/linux/keypress.cc" "src/linux/mouse.cc" "src/linux/screen.cc" "src/linux/screengrab.cc" "src/linux/xdisplay.cc" "src/linux/highlightwindow.cc" "src/linux/window_manager.cc" "src/linux/libxdo/xdo.c" "src/linux/libxdo/xdo_search.c")
+    set(SOURCE_FILES "${SOURCE_FILES}" "src/linux/keycode.cc" "src/linux/keypress.cc" )
 elseif (UNIX AND APPLE)
-    set(SOURCE_FILES "${SOURCE_FILES}" "src/macos/keycode.cc" "src/macos/keypress.cc" "src/macos/mouse.cc" "src/macos/mouse_utils.mm" "src/macos/screen.cc" "src/macos/screengrab.cc" "src/macos/highlightwindow.mm" "src/macos/window_manager.mm")
+    set(SOURCE_FILES "${SOURCE_FILES}" "src/macos/keycode.cc" "src/macos/keypress.cc" )
 elseif (WIN32)
-    set(SOURCE_FILES "${SOURCE_FILES}" "src/win32/keycode.cc" "src/win32/keypress.cc" "src/win32/mouse.cc" "src/win32/screen.cc" "src/win32/screengrab.cc" "src/win32/highlightwindow.cc" "src/win32/window_manager.cc")
+    set(SOURCE_FILES "${SOURCE_FILES}" "src/win32/keycode.cc" "src/win32/keypress.cc" )
 endif()
 add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})
 
